@@ -32,6 +32,14 @@
     font-family: 'DM Sans', sans-serif;
   }
 
+  @media (max-width: 768px) {
+    html, body {
+      overflow-y: auto;
+      overflow-x: hidden;
+      cursor: auto;
+    }
+  }
+
   #hero {
     display: flex;
     width: 100vw;
@@ -40,12 +48,27 @@
     position: relative;
   }
 
+  @media (max-width: 768px) {
+    #hero {
+      flex-direction: column;
+      height: auto;
+      min-height: auto;
+      padding: 40px 0;
+    }
+  }
+
   /* ===== GRID ===== */
   #grid-canvas {
     position: fixed;
     inset: 0;
     z-index: 0;
     pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    #grid-canvas {
+      display: none;
+    }
   }
 
   /* ===== LEFT ===== */
@@ -58,6 +81,15 @@
     padding: 52px 60px;
     position: relative;
     z-index: 5;
+  }
+
+  @media (max-width: 768px) {
+    #left {
+      height: auto;
+      padding: 30px 20px;
+      justify-content: flex-start;
+      width: 100%;
+    }
   }
 
   #top-left { display: flex; flex-direction: column; gap: 6px; }
@@ -77,6 +109,14 @@
     justify-content: center;
   }
 
+  @media (max-width: 768px) {
+    #left-center {
+      flex: 0;
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+  }
+
   h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
@@ -92,6 +132,12 @@
     font-style: italic;
     color: var(--accent);
     margin-left: 0.08em;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+    }
   }
 
   .role {
@@ -114,6 +160,13 @@
     flex-shrink: 0;
   }
 
+  @media (max-width: 768px) {
+    .role {
+      margin-top: 12px;
+      font-size: 0.72rem;
+    }
+  }
+
   .desc {
     margin-top: 28px;
     font-size: 0.88rem;
@@ -121,6 +174,14 @@
     color: #666;
     line-height: 1.8;
     max-width: 320px;
+  }
+
+  @media (max-width: 768px) {
+    .desc {
+      font-size: 0.85rem;
+      max-width: 100%;
+      margin-top: 12px;
+    }
   }
 
   .cta {
@@ -145,6 +206,13 @@
 
   #bottom-left { display: flex; gap: 20px; align-items: center; }
 
+  @media (max-width: 768px) {
+    #bottom-left {
+      gap: 16px;
+      margin-top: 20px;
+    }
+  }
+
   .social-link { text-decoration: none; transition: transform 0.2s; display: flex; }
   .social-link:hover { transform: translateY(-3px); }
   .social-link svg { width: 18px; height: 18px; fill: #999; transition: fill 0.2s; }
@@ -162,6 +230,15 @@
     padding-right: 60px;
   }
 
+  @media (max-width: 768px) {
+    #right {
+      width: 100%;
+      height: auto;
+      padding: 40px 20px;
+      padding-right: 20px;
+    }
+  }
+
   .deco-ring {
     position: absolute;
     border-radius: 50%;
@@ -170,6 +247,12 @@
   }
   .deco-ring.r1 { width: 520px; height: 520px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
   .deco-ring.r2 { width: 680px; height: 680px; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.5; }
+
+  @media (max-width: 768px) {
+    .deco-ring {
+      display: none;
+    }
+  }
 
   /* ===== CARD ===== */
   #card {
@@ -187,6 +270,18 @@
 
   #card:hover {
     box-shadow: 0 8px 12px rgba(0,0,0,0.08), 0 30px 80px rgba(0,0,0,0.18), 0 60px 120px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 768px) {
+    #card {
+      width: 100% !important;
+      height: 400px;
+      border-radius: 16px;
+      max-width: 100%;
+    }
+    #card:hover {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.12), 0 40px 100px rgba(0,0,0,0.08);
+    }
   }
 
   /* Portrait */
@@ -213,6 +308,18 @@
 
   #card:hover #card-terminal { opacity: 1; }
   #card:hover #card-img { opacity: 0.08; }
+
+  @media (max-width: 768px) {
+    #card-terminal {
+      opacity: 1;
+    }
+    #card:hover #card-terminal {
+      opacity: 1;
+    }
+    #card:hover #card-img {
+      opacity: 0.08;
+    }
+  }
 
   /* Terminal top bar */
   .term-bar {
@@ -270,6 +377,13 @@
     position: relative;
   }
 
+  @media (max-width: 768px) {
+    .term-body {
+      padding: 12px 8px;
+      overflow-y: auto;
+    }
+  }
+
   .code-line {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.62rem;
@@ -284,6 +398,15 @@
   }
 
   #card:hover .code-line { opacity: 1; transform: translateX(0); }
+
+  @media (max-width: 768px) {
+    .code-line {
+      font-size: 0.55rem;
+      line-height: 1.6;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
   .ln {
     color: #3d444d;
@@ -349,6 +472,12 @@
   }
   #card:hover #card-grad { opacity: 0; }
 
+  @media (max-width: 768px) {
+    #card-grad {
+      display: none;
+    }
+  }
+
   #card-label {
     position: absolute;
     bottom: 28px; left: 28px; right: 28px;
@@ -359,6 +488,14 @@
     transition: opacity 0.4s ease;
   }
   #card:hover #card-label { opacity: 0; }
+
+  @media (max-width: 768px) {
+    #card-label {
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+    }
+  }
 
   .card-name {
     font-family: 'Playfair Display', serif;
@@ -388,6 +525,15 @@
     z-index: 11;
   }
 
+  @media (max-width: 768px) {
+    #card-tag {
+      font-size: 0.6rem;
+      padding: 6px 12px;
+      right: 12px;
+      top: 12px;
+    }
+  }
+
   #hint {
     position: absolute;
     right: 60px; bottom: 52px;
@@ -414,6 +560,12 @@
     50% { opacity: 0.4; transform: scale(1.4); }
   }
 
+  @media (max-width: 768px) {
+    #hint {
+      display: none;
+    }
+  }
+
   /* Cursor */
   #cursor-dot {
     position: fixed;
@@ -433,6 +585,12 @@
     z-index: 9998;
     transform: translate(-50%, -50%);
     transition: width 0.3s, height 0.3s, border-color 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    #cursor-dot, #cursor-ring {
+      display: none;
+    }
   }
 </style>
 </head>
@@ -593,32 +751,38 @@ document.addEventListener('mousemove', e => {
 
 // ---- Card tilt ----
 const card = document.getElementById('card');
-card.addEventListener('mousemove', e => {
-  const r = card.getBoundingClientRect();
-  const x = e.clientX - r.left, y = e.clientY - r.top;
-  const cx = r.width/2, cy = r.height/2;
-  const rx = ((y - cy) / cy) * -6;
-  const ry = ((x - cx) / cx) * 6;
-  card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.025)`;
-  ring.style.width = '56px'; ring.style.height = '56px';
-  ring.style.borderColor = 'rgba(63,185,80,0.5)';
-});
-card.addEventListener('mouseleave', () => {
-  card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
-  ring.style.width = '36px'; ring.style.height = '36px';
-  ring.style.borderColor = 'rgba(0,0,0,0.3)';
-});
+const isMobile = window.innerWidth <= 768;
+
+if (!isMobile) {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    const cx = r.width/2, cy = r.height/2;
+    const rx = ((y - cy) / cy) * -6;
+    const ry = ((x - cx) / cx) * 6;
+    card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.025)`;
+    ring.style.width = '56px'; ring.style.height = '56px';
+    ring.style.borderColor = 'rgba(63,185,80,0.5)';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+    ring.style.width = '36px'; ring.style.height = '36px';
+    ring.style.borderColor = 'rgba(0,0,0,0.3)';
+  });
+}
 
 // ---- Animation loop ----
 function animate() {
-  ringX += (mouseX - ringX) * LERP;
-  ringY += (mouseY - ringY) * LERP;
-  ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px';
+  if (!isMobile) {
+    ringX += (mouseX - ringX) * LERP;
+    ringY += (mouseY - ringY) * LERP;
+    ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px';
 
-  const cx = window.innerWidth/2, cy = window.innerHeight/2;
-  gridOX += (mouseX - cx) * 0.003;
-  gridOY += (mouseY - cy) * 0.003;
-  drawGrid();
+    const cx = window.innerWidth/2, cy = window.innerHeight/2;
+    gridOX += (mouseX - cx) * 0.003;
+    gridOY += (mouseY - cy) * 0.003;
+    drawGrid();
+  }
   requestAnimationFrame(animate);
 }
 animate();
