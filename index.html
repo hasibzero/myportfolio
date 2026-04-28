@@ -801,7 +801,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: background 0.3s, box-shadow 0.3s;
+    transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
+    background: rgba(240,237,232,0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
   #navbar.scrolled {
     background: rgba(240,237,232,0.96);
@@ -842,8 +845,8 @@
     background: var(--accent);
     transition: right 0.3s;
   }
-  .nav-links-list a:hover { color: var(--ink); }
-  .nav-links-list a:hover::after { right: 0; }
+  .nav-links-list a:not(.nav-cta):hover { color: var(--ink); }
+  .nav-links-list a:not(.nav-cta):hover::after { right: 0; }
   .nav-cta {
     display: inline-flex;
     align-items: center;
@@ -853,11 +856,12 @@
     padding: 8px 18px;
     border: 1px solid var(--ink);
     color: var(--ink);
+    background: transparent;
     text-decoration: none;
     letter-spacing: 0.1em;
-    transition: background 0.25s, color 0.25s;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
   }
-  .nav-cta:hover { background: var(--ink); color: #fff; }
+  .nav-cta:hover { background: var(--ink); color: #fff !important; border-color: var(--ink); }
   .nav-cta::after { display: none !important; }
   .nav-cta svg { width: 11px; height: 11px; fill: currentColor; }
   .nav-toggle {
