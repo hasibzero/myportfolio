@@ -1862,9 +1862,10 @@ animate();
 const navbar = document.getElementById('navbar');
 const navToggle = document.getElementById('nav-toggle');
 const navLinksList = document.getElementById('nav-links');
+const NAVBAR_SCROLL_THRESHOLD = 40;
 
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  navbar.classList.toggle('scrolled', window.scrollY > NAVBAR_SCROLL_THRESHOLD);
 });
 
 navToggle.addEventListener('click', () => {
@@ -1881,6 +1882,7 @@ navLinksList.querySelectorAll('a').forEach(a => {
 
 // ===== SKILL BARS =====
 const skillFills = document.querySelectorAll('.skill-fill');
+const SKILL_ANIMATION_THRESHOLD = 0.15;
 const skillObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1888,7 +1890,7 @@ const skillObs = new IntersectionObserver(entries => {
       skillObs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: SKILL_ANIMATION_THRESHOLD });
 skillFills.forEach(el => skillObs.observe(el));
 
 // ===== PROJECT MODAL =====
