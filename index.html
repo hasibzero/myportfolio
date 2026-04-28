@@ -25,14 +25,15 @@
     --term-comment: #8b949e;
   }
 
-  html, body {
-    width: 100%; height: 100%;
-    background: var(--bg);
-    overflow-x: hidden;
-    overflow-y: auto;
-    cursor: none;
-    font-family: 'DM Sans', sans-serif;
-  }
+html, body {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg);
+  overflow-x: hidden;
+  cursor: none;
+  font-family: 'DM Sans', sans-serif;
+  scroll-behavior: smooth; /* Adds smooth scrolling to your nav links */
+}
 
   @media (max-width: 768px) {
     html, body {
@@ -858,7 +859,10 @@
     letter-spacing: 0.1em;
     transition: background 0.25s, color 0.25s;
   }
-  .nav-cta:hover { background: var(--ink); color: #fff; }
+  .nav-links-list a.nav-cta:hover { 
+  background: var(--ink); 
+  color: #fff; 
+}
   .nav-cta::after { display: none !important; }
   .nav-cta svg { width: 11px; height: 11px; fill: currentColor; }
   .nav-toggle {
@@ -1160,7 +1164,15 @@
     font-size: 0.57rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.35); text-transform: uppercase;
   }
   .modal-close {
-    position: absolute; top: 12px; right: 12px;
+    position: sticky; 
+  top: 12px; 
+  float: right; /* Pushes it to the right while remaining in the document flow */
+  margin-right: 12px;
+  margin-bottom: -42px; /* Pulls the banner back up so there isn't a blank gap */
+  width: 30px; height: 30px;
+  background: rgba(0,0,0,0.4); border: none; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s; z-index: 10;
     width: 30px; height: 30px;
     background: rgba(0,0,0,0.4); border: none; border-radius: 50%;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -1772,8 +1784,8 @@ let gridOX = 0, gridOY = 0;
 const GSIZ = 50;
 
 function resizeGrid() {
-  gridCanvas.width = window.innerWidth;
-  gridCanvas.height = window.innerHeight;
+  gridCanvas.width = document.documentElement.clientWidth;
+  gridCanvas.height = document.documentElement.clientHeight;
 }
 resizeGrid();
 window.addEventListener('resize', resizeGrid);
