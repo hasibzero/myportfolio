@@ -43,7 +43,10 @@ html, body {
 
   #hero {
     display: flex;
-    width: 100vw;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
     height: 100vh;
     align-items: center;
     position: relative;
@@ -598,7 +601,7 @@ html, body {
   #projects {
     position: relative;
     z-index: 5;
-    padding: 100px 60px 120px;
+    padding: 100px max(60px, calc((100% - 1200px) / 2)) 120px;
     background: var(--bg);
   }
 
@@ -798,7 +801,7 @@ html, body {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 0 60px;
+    padding: 0 max(60px, calc((100% - 1200px) / 2));
     height: 72px;
     display: flex;
     align-items: center;
@@ -909,7 +912,7 @@ html, body {
   .section-wrap {
     position: relative;
     z-index: 5;
-    padding: 100px 60px 120px;
+    padding: 100px max(60px, calc((100% - 1200px) / 2)) 120px;
     background: var(--bg);
   }
   @media (max-width: 768px) { .section-wrap { padding: 60px 20px 80px; } }
@@ -1111,7 +1114,7 @@ html, body {
   #footer {
     /* background: var(--ink); */
     background: var(--ink);
-    padding: 44px 60px;
+    padding: 44px max(60px, calc((100% - 1200px) / 2));
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 20px; position: relative; z-index: 5;
   }
